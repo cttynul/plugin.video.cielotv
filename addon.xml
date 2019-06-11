@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.cielotv" name="Cielo TV" version="1.0.0" provider-name="cttynul">
+  <requires>
+    <import addon="xbmc.python" version="2.14.0"/>
+    <import addon="script.module.beautifulsoup4" version="4.3.2"/>
+    <import addon="script.module.dateutil" version="2.4.2"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension library="lib" point="xbmc.python.module"/>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="it_IT">Summary Addon</summary>
+    <summary lang="en_GB">Summary Addon</summary>
+    <description lang="it_IT">[CR]Default core è un fork dei toolkit di NeverWise</description>
+    <description lang="en_GB">[CR]Default core is a fork of NeverWise toolkit</description>
+    <disclaimer lang="it_IT">Disclaimer</disclaimer>
+    <disclaimer lang="en_GB">Disclaimer</disclaimer>
+    <language>it</language>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+    <forum></forum>
+    <website></website>
+    <email></email>
+    <source>https://github.com/cttynul/path.to.source</source>
+  </extension>
+</addon>
+
