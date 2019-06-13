@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.cielotv" name="Cielo TV" version="1.0.0" provider-name="cttynul">
+<addon id="plugin.video.cielotv" name="Cielo Live" version="1.0.0" provider-name="cttynul">
   <requires>
     <import addon="xbmc.python" version="2.14.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -12,18 +12,18 @@
   <extension library="lib" point="xbmc.python.module"/>
   <extension point="xbmc.addon.metadata">
     <platform>all</platform>
-    <summary lang="it_IT">Summary Addon</summary>
-    <summary lang="en_GB">Summary Addon</summary>
-    <description lang="it_IT">[CR]Default core è un fork dei toolkit di NeverWise</description>
-    <description lang="en_GB">[CR]Default core is a fork of NeverWise toolkit</description>
-    <disclaimer lang="it_IT">Disclaimer</disclaimer>
-    <disclaimer lang="en_GB">Disclaimer</disclaimer>
+    <summary lang="it_IT">Guarda Cielo, TV8 e Sky TG24 in diretta</summary>
+    <summary lang="en_GB">Watch Cielo, TV8 and Sky TG24 live</summary>
+    <description lang="it_IT">Guarda live in streaming i canali TV di Cielo, TV8 e Sky TG24 direttamente sul tuo mediacenter.[CR]I flussi di streaming potrebbero essere visibili solo dall'Italia.[CR]Default core è un fork dei toolkit di NeverWise</description>
+    <description lang="en_GB">Watch italian TV channels Cielo, TV8 and Sky TG24 in live streaming on your personal mediacenter.[CR]Live Streaming may be avaiable only for italian users.[CR]Default core is a fork of NeverWise toolkit</description>
+    <disclaimer lang="it_IT">I brand e i loghi di Cielo, TV8 e Sky TG 24 appartengono ai rispettivi detentori dei copyright.</disclaimer>
+    <disclaimer lang="en_GB">Cielo, TV8 and Sky TG 24 brands and logos are trademarks licensed by respective owners.</disclaimer>
     <language>it</language>
-    <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+    <license>GNU General Public License Version 3, 29 June 2007</license>
     <forum></forum>
     <website></website>
     <email></email>
-    <source>https://github.com/cttynul/path.to.source</source>
+    <source>https://github.com/cttynul/plugin.video.cielotv</source>
   </extension>
 </addon>
 
