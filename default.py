@@ -14,20 +14,31 @@ class Main(object):
     fanart = neverwise.addon.getAddonInfo('fanart')
 
     if len(self._params) == 0:
-      # cielo
-      # using isplayable = true cause kodi/xbmc can handle m3u8 streaming
+      source = neverwise.getResponse("https://www.superguidatv.it/ora-in-onda/").body
+      tv8plot, tv8img = self.get_epg("TV8", source)
+      cieloplot, cieloimg = self.get_epg("Cielo", source)
+      tgplot, tgimg = self.get_epg("Sky Tg24", source)
+      tgimg = "https://nst.sky.it/content/dam/static/contentimages/original/sezioni/condivisione/skytg24_diretta.jpg"
+
       response = self._getResponseJson('https://video.sky.it/be/getLivestream?id=2')
       url = response.body["streaming_url"]
-      self._addItem(title="cielo", url=url, logo="", fanart="", plot="", duration="", isPlayable=True)
+      self._addItem(title="Cielo - Diretta" + cieloplot, url=url, logo=cieloimg, fanart="", plot="Adesso in Onda:"+cieloplot, duration="", isPlayable=True)
       response = self._getResponseJson('https://video.sky.it/be/getLivestream?id=7')
       url = response.body["streaming_url"]
-      self._addItem(title="tv8", url=url, logo="", fanart="", plot="", duration="", isPlayable=True)
+      self._addItem(title="TV8 - Diretta" + tv8plot, url=url, logo=tv8img, fanart="", plot="Adesso in Onda:"+tv8plot, duration="", isPlayable=True)
       response = self._getResponseJson('https://video.sky.it/be/getLivestream?id=1')
       url = response.body["streaming_url"]
-      self._addItem(title="tg 24", url=url, logo="", fanart="", plot="", duration="", isPlayable=True)
+      self._addItem(title="Sky TG 24 - Diretta" + tgplot, url=url, logo=tgimg, fanart="", plot="Adesso in Onda:"+tgplot, duration="", isPlayable=True)
       xbmcplugin.endOfDirectory(self._handle)
     else:
       pass
+
+  def get_epg(self, channel, source):
+    pattern = 'alt="' + channel + '"[^)]*\);">([^<]+)[<>\/a-zA-Z =\"_\-\:\(\)0-9\,;\'#\.]*vonair_backdrop"[^:]+([^"]+)'
+    matches = re.findall(pattern, source)
+    inonda = "\n[B]" + matches[0][0] + "[/B]"
+    img = "https" + matches[0][1]
+    return inonda, img
 
   def _getResponseJson(self, url, add_bearer = False):
     response = neverwise.getResponseJson(url, self._getHeaders(add_bearer), False)
