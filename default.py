@@ -19,16 +19,24 @@ class Main(object):
       cieloplot, cieloimg = self.get_epg("Cielo", source)
       tgplot, tgimg = self.get_epg("Sky Tg24", source)
       tgimg = "https://nst.sky.it/content/dam/static/contentimages/original/sezioni/condivisione/skytg24_diretta.jpg"
-
-      response = self._getResponseJson('https://video.sky.it/be/getLivestream?id=2')
-      url = response.body["streaming_url"]
-      self._addItem(title="Cielo - Diretta" + cieloplot, url=url, logo=cieloimg, fanart="", plot="Adesso in Onda:"+cieloplot, duration="", isPlayable=True)
-      response = self._getResponseJson('https://video.sky.it/be/getLivestream?id=7')
-      url = response.body["streaming_url"]
-      self._addItem(title="TV8 - Diretta" + tv8plot, url=url, logo=tv8img, fanart="", plot="Adesso in Onda:"+tv8plot, duration="", isPlayable=True)
-      response = self._getResponseJson('https://video.sky.it/be/getLivestream?id=1')
-      url = response.body["streaming_url"]
-      self._addItem(title="Sky TG 24 - Diretta" + tgplot, url=url, logo=tgimg, fanart="", plot="Adesso in Onda:"+tgplot, duration="", isPlayable=True)
+      try:
+        response = self._getResponseJson('https://video.sky.it/be/getLivestream?id=2')
+        url = response.body["streaming_url"]
+        self._addItem(title="Cielo - Diretta" + cieloplot, url=url, logo=cieloimg, fanart="", plot="Adesso in Onda:"+cieloplot, duration="", isPlayable=True)
+      except:
+        pass
+      try:
+        response = self._getResponseJson('https://video.sky.it/be/getLivestream?id=7')
+        url = response.body["streaming_url"]
+        self._addItem(title="TV8 - Diretta" + tv8plot, url=url, logo=tv8img, fanart="", plot="Adesso in Onda:"+tv8plot, duration="", isPlayable=True)
+      except:
+        pass
+      try:  
+        response = self._getResponseJson('https://video.sky.it/be/getLivestream?id=1')
+        url = response.body["streaming_url"]
+        self._addItem(title="Sky TG 24 - Diretta" + tgplot, url=url, logo=tgimg, fanart="", plot="Adesso in Onda:"+tgplot, duration="", isPlayable=True)
+      except:
+        pass
       xbmcplugin.endOfDirectory(self._handle)
     else:
       pass
